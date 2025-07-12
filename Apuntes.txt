@@ -1,0 +1,48 @@
+#------------------------------------------------------------------------------------
+# Copia la serie original
+series <- Titulados_Ed_Superior_2023
+
+
+#-----------------------------------------------------------------------------------
+# Borra las columnas innecesarias
+series <- series[, -c(1,2,3,5,8,9,10,11,12,14,15,16,17,18,19,20,21,22,23,25,27,28,30,31,32,33,34,35,36,37,38,39,40,41)]
+
+
+#-------------------------------------------------------------------------------------
+# Borra las filas con el datos anio_ing_carr_ori=1900
+for (i in 1:297174) {
+  if(as.numeric(series$anio_ing_carr_ori[i]) == as.numeric(1900))
+    {
+    series <- series[-c(i),]
+  }
+}
+
+#---------------------------------------------------------------------------------------
+#Modifica columna dur_estudio_carr en semestres a años
+for (i in 1:284408) {
+  series$dur_estudio_carr[i]<-as.numeric(series$dur_estudio_carr[i])/2
+}
+
+#---------------------------------------------------------------------------------------
+#Convierte columna fecha_obtencion_titulo de 6 dígitos a 4 digitos
+for (i in 1:284408) {
+  series$fecha_obtencion_titulo[i] <- substr(series$fecha_obtencion_titulo[i],1,4)
+  }
+
+
+#----------------------------------------------------------------------------------------
+#Agrego la columna tiempo_estudiando = fecha_obtencion_titulo - anio_ing_carr_ori
+for (i in 1:284408) {
+  series$tiempo_estudiando[i] <- as.numeric(series$fecha_obtencion_titulo[i]) - as.numeric(series$anio_ing_carr_ori[i])
+}
+
+#----------------------------------------------------------------------------------------
+#Convierte gen_alu variable numérica a categórica  
+for (i in 1:284408) {
+  if(series$gen_alu[i]==1){series$gen_alu[i]<-"Hombre"}
+  if(series$gen_alu[i]==2){series$gen_alu[i]<-"Mujer"}
+}
+
+#-----------------------------------------------------------------------------------------
+# Guarda objeto series en un dataset
+write.csv(series, "dataset.csv")
