@@ -1,1 +1,3 @@
 Analisis de un dataset que muestran los alumnos que se titularon el año 2023 en todo Chile
+Link del video https://eduudla-my.sharepoint.com/:v:/g/personal/165591909_academicos_uamericas_cl/EbpE6bR6Qo1JsBedF69i4GQBjgdk5iotssXnRHoTv-hdlQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=c9nS6I
+
